@@ -1,0 +1,17 @@
+{
+  "name": "vscode-snippets",
+  "version": "1.0.0",
+  "description": "VSCode snippets creator",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "node ./src/index.js"
+  },
+  "keywords": [],
+  "author": "Maxim Molochkov (https://github.com/klaseca)",
+  "license": "ISC",
+  "devDependencies": {
+    "yaml": "^2.2.1"
+  }
+}

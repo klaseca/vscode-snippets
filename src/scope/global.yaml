@@ -1,0 +1,4 @@
+snippets:
+  - name: File name
+    prefix: flnm
+    template: ${TM_FILENAME_BASE}

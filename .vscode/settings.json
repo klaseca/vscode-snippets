@@ -1,0 +1,7 @@
+{
+  "yaml.format.enable": true,
+  "yaml.yamlVersion": "1.2",
+  "yaml.schemas": {
+    "./snippets-schema.json": "/*.yaml",
+  }
+}

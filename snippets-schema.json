@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "title": "Snippets",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "scope": {
+      "type": ["string", "null"]
+    },
+    "snippets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "minItems": 1,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "prefix": {
+            "type": "string"
+          },
+          "template": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "prefix", "template"]
+      }
+    }
+  },
+  "required": ["snippets"]
+}

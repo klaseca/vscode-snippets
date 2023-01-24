@@ -1,0 +1,8 @@
+{
+  "File name": {
+    "prefix": "flnm",
+    "body": [
+      "${TM_FILENAME_BASE}"
+    ]
+  }
+}

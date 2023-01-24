@@ -1,0 +1,54 @@
+{
+  "JSX arrow function component (named export)": {
+    "prefix": "cafe",
+    "body": [
+      "export const ${1:${TM_FILENAME_BASE}} = () => {",
+      "\treturn (",
+      "\t\t<div>${1:first}</div>",
+      "\t);",
+      "};",
+      ""
+    ],
+    "scope": "typescriptreact, javascript, javascriptreact"
+  },
+  "JSX arrow function component (default export)": {
+    "prefix": "cafed",
+    "body": [
+      "const ${1:${TM_FILENAME_BASE}} = () => {",
+      "\treturn (",
+      "\t\t<div>${1:first}</div>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}};",
+      ""
+    ],
+    "scope": "typescriptreact, javascript, javascriptreact"
+  },
+  "JSX function component (named export)": {
+    "prefix": "cfe",
+    "body": [
+      "export function ${1:${TM_FILENAME_BASE}}() {",
+      "\treturn (",
+      "\t\t<div>${1:first}</div>",
+      "\t);",
+      "};",
+      ""
+    ],
+    "scope": "typescriptreact, javascript, javascriptreact"
+  },
+  "JSX function component (default export)": {
+    "prefix": "cfed",
+    "body": [
+      "function ${1:${TM_FILENAME_BASE}}() {",
+      "\treturn (",
+      "\t\t<div>${1:first}</div>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}};",
+      ""
+    ],
+    "scope": "typescriptreact, javascript, javascriptreact"
+  }
+}
