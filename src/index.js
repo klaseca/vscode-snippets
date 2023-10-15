@@ -18,16 +18,19 @@ const buildSnippetsFromConfig = async (scopeUrl, dirent, fileName) => {
 
   const { snippets, scope } = yaml;
 
-  const snippetsObject = snippets.reduce((snippetsAcc, { name, prefix, template }) => {
-    snippetsAcc[name] = {
-      prefix,
-      body: templateToBody(template),
-      scope,
-    };
-    return snippetsAcc;
-  }, {});
+  const snippetsObject = snippets.reduce(
+    (snippetsAcc, { name, prefix, template }) => {
+      snippetsAcc[name] = {
+        prefix,
+        body: templateToBody(template),
+        scope,
+      };
+      return snippetsAcc;
+    },
+    {}
+  );
 
-  const snippetsData = JSON.stringify(snippetsObject, null, 2);
+  const snippetsData = JSON.stringify(snippetsObject, null, 2).concat('\n');
 
   const outputSnippetsPath = fileURLToPath(
     new URL(`./../dist/${fileName}.code-snippets`, import.meta.url)
