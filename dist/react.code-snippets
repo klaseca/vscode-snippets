@@ -2,14 +2,14 @@
   "Import React": {
     "prefix": "impr",
     "body": [
-      "import React from 'react';"
+      "import React from 'react'"
     ],
     "scope": "typescriptreact, javascript, javascriptreact"
   },
   "Import React as namespace": {
     "prefix": "imprns",
     "body": [
-      "import * as React from 'react';"
+      "import * as React from 'react'"
     ],
     "scope": "typescriptreact, javascript, javascriptreact"
   }

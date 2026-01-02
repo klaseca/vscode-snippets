@@ -2,7 +2,7 @@ scope: typescriptreact, javascript, javascriptreact
 snippets:
   - name: Import React
     prefix: impr
-    template: import React from 'react';
+    template: import React from 'react'
   - name: Import React as namespace
     prefix: imprns
-    template: import * as React from 'react';
+    template: import * as React from 'react'

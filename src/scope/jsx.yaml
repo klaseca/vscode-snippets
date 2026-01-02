@@ -6,33 +6,33 @@ snippets:
       export const ${1:${TM_FILENAME_BASE}} = () => {
         return (
           <div>${1:first}</div>
-        );
-      };
+        )
+      }
   - name: JSX arrow function component (default export)
     prefix: cafed
     template: |
       const ${1:${TM_FILENAME_BASE}} = () => {
         return (
           <div>${1:first}</div>
-        );
-      };
+        )
+      }
 
-      export default ${1:${TM_FILENAME_BASE}};
+      export default ${1:${TM_FILENAME_BASE}}
   - name: JSX function component (named export)
     prefix: cfe
     template: |
       export function ${1:${TM_FILENAME_BASE}}() {
         return (
           <div>${1:first}</div>
-        );
-      };
+        )
+      }
   - name: JSX function component (default export)
     prefix: cfed
     template: |
       function ${1:${TM_FILENAME_BASE}}() {
         return (
           <div>${1:first}</div>
-        );
-      };
+        )
+      }
 
-      export default ${1:${TM_FILENAME_BASE}};
+      export default ${1:${TM_FILENAME_BASE}}
