@@ -1,0 +1,26 @@
+scope: typescript, typescriptreact, javascript, javascriptreact, html, vue, svelte, astro
+snippets:
+  - name: Import default
+    prefix: imp
+    template: import ${2} from '${1}'
+  - name: Import named
+    prefix: impn
+    template: import { ${2} } from '${1}'
+  - name: Import namespace
+    prefix: impns
+    template: import * as ${2} from '${1}'
+  - name: Import side effect
+    prefix: impse
+    template: import '${1}'
+  - name: Console log
+    prefix: clg
+    template: console.log(${1})
+  - name: Console error
+    prefix: cer
+    template: console.error(${1})
+  - name: Console warn
+    prefix: cwa
+    template: console.warn(${1})
+  - name: Console info
+    prefix: cin
+    template: console.info(${1})

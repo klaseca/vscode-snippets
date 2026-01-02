@@ -1,0 +1,58 @@
+{
+  "Import default": {
+    "prefix": "imp",
+    "body": [
+      "import ${2} from '${1}'"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact, html, vue, svelte, astro"
+  },
+  "Import named": {
+    "prefix": "impn",
+    "body": [
+      "import { ${2} } from '${1}'"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact, html, vue, svelte, astro"
+  },
+  "Import namespace": {
+    "prefix": "impns",
+    "body": [
+      "import * as ${2} from '${1}'"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact, html, vue, svelte, astro"
+  },
+  "Import side effect": {
+    "prefix": "impse",
+    "body": [
+      "import '${1}'"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact, html, vue, svelte, astro"
+  },
+  "Console log": {
+    "prefix": "clg",
+    "body": [
+      "console.log(${1})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact, html, vue, svelte, astro"
+  },
+  "Console error": {
+    "prefix": "cer",
+    "body": [
+      "console.error(${1})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact, html, vue, svelte, astro"
+  },
+  "Console warn": {
+    "prefix": "cwa",
+    "body": [
+      "console.warn(${1})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact, html, vue, svelte, astro"
+  },
+  "Console info": {
+    "prefix": "cin",
+    "body": [
+      "console.info(${1})"
+    ],
+    "scope": "typescript, typescriptreact, javascript, javascriptreact, html, vue, svelte, astro"
+  }
+}
