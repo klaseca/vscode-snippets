@@ -1,7 +1,7 @@
 import { copyFile, opendir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { throwError } from './helpers.js';
+import { DIST_URL } from './constants.js';
 
 const snippetsEndPath = 'Code/User/snippets';
 
@@ -22,11 +22,9 @@ const syncSnippets = async () => {
     throw new Error(`${process.platform} platform is not supported`);
   }
 
-  const distUrl = fileURLToPath(new URL('../dist', import.meta.url));
+  const distPath = fileURLToPath(DIST_URL);
 
-  const dir = await opendir(distUrl, { encoding: 'utf8' }).catch(
-    throwError(`Cannot find folder: ${distUrl}`)
-  );
+  const dir = await opendir(distPath, { encoding: 'utf8' });
 
   for await (const dirent of dir) {
     const { ext, base } = path.parse(dirent.name);
@@ -35,21 +33,15 @@ const syncSnippets = async () => {
       continue;
     }
 
-    const sourceSnippetPath = path.join(distUrl, base);
+    const sourceSnippetPath = path.join(distPath, base);
 
     const destSnippetPath = path.join(snippetsPath, base);
 
-    await copyFile(sourceSnippetPath, destSnippetPath)
-      .then(() =>
-        console.log(
-          `Success copy file from '${sourceSnippetPath}' to '${destSnippetPath}'`
-        )
+    await copyFile(sourceSnippetPath, destSnippetPath).then(() =>
+      console.log(
+        `Success copy file from '${sourceSnippetPath}' to '${destSnippetPath}'`
       )
-      .catch(
-        throwError(
-          `Failed to copy file from '${sourceSnippetPath}' to '${destSnippetPath}'`
-        )
-      );
+    );
   }
 };
 

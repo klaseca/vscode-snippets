@@ -1,15 +1,14 @@
-import { mkdir, opendir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, opendir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'yaml';
-import { syncElseThrow, templateToBody, throwError } from './helpers.js';
+import { syncElseThrow, templateToBody } from './helpers.js';
+import { DIST_URL } from './constants.js';
 
 const buildSnippetsFromConfig = async (scopeUrl, dirent, fileName) => {
   const filePath = path.join(scopeUrl, dirent.name);
 
-  const file = await readFile(filePath, {
-    encoding: 'utf8',
-  }).catch(throwError(`Unable to read file: ${filePath}`));
+  const file = await readFile(filePath, { encoding: 'utf8' });
 
   const yaml = syncElseThrow(
     () => parse(file),
@@ -33,30 +32,22 @@ const buildSnippetsFromConfig = async (scopeUrl, dirent, fileName) => {
   const snippetsData = JSON.stringify(snippetsObject, null, 2).concat('\n');
 
   const outputSnippetsPath = fileURLToPath(
-    new URL(`./../dist/${fileName}.code-snippets`, import.meta.url)
+    new URL(`${fileName}.code-snippets`, DIST_URL)
   );
 
   const outputDirectory = path.dirname(outputSnippetsPath);
 
-  const dirPath = await mkdir(outputDirectory, {
-    recursive: true,
-  }).catch(throwError(`Failed to create directory: ${outputDirectory}`));
+  await mkdir(outputDirectory, { recursive: true });
 
-  if (dirPath) {
-    console.log('A catalog has been created: ', dirPath);
-  }
-
-  await writeFile(outputSnippetsPath, snippetsData).catch(
-    throwError(`Failed to create file: ${outputSnippetsPath}`)
-  );
+  await writeFile(outputSnippetsPath, snippetsData);
 };
 
 const build = async () => {
   const scopeUrl = fileURLToPath(new URL('./scope', import.meta.url));
 
-  const dir = await opendir(scopeUrl, { encoding: 'utf8' }).catch(
-    throwError(`Cannot find folder: ${scopeUrl}`)
-  );
+  const dir = await opendir(scopeUrl, { encoding: 'utf8' });
+
+  await rm(DIST_URL, { force: true, recursive: true });
 
   for await (const dirent of dir) {
     const { ext, name } = path.parse(dirent.name);
